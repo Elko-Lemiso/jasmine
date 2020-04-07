@@ -10,6 +10,11 @@ describe("Env integration", function() {
     env.cleanup_();
   });
 
+  it("has race", function() {
+    jasmine.getEnv().requirePromises();
+    expect(Promise.race).toBeTruthy();
+  });
+
   it("Suites execute as expected (no nesting)", function(done) {
     var calls = [];
 
